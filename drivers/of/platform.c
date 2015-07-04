@@ -395,10 +395,12 @@ static int of_platform_bus_create(struct device_node *bus,
 		return 0;
 	}
 
+#ifdef CONFIG_TEGRA_DOWNSTREAM
 	if (of_device_is_compatible(bus, "nvhost-bus")) {
 		of_nvhost_bus_create(bus, tegra20_auxdata_lookup);
 		return 0;
 	}
+#endif
 
 	dev = of_platform_device_create_pdata(bus, bus_id, platform_data, parent);
 	if (!dev || !of_match_node(matches, bus))
