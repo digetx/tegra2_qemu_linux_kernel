@@ -46,7 +46,7 @@
 	};
 
 	host1x@50000000 {
-		compatible = "nvidia,tegra20-host1x", "nvhost-bus";
+		compatible = "nvidia,tegra20-host1x", "simple-bus", "nvhost-bus";
 		ranges;
 
 		mpe@54040000 {
@@ -77,6 +77,8 @@
 
 			rgb {
 				status = "okay";
+
+				nvidia,panel = <&panel>;
 
 				display {
 					fb-win = <0>;
